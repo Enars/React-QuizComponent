@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import QuizScore from './QuizScore.js'
 
 class QuizEnd extends Component {
   handleResetClick() {
@@ -6,9 +7,11 @@ class QuizEnd extends Component {
   }
   render() {
     return(
-      <div>
+      <div className="content">
+        <QuizScore state={this.props.state}/>
+        <br />
         <p>Thanks for playing!</p>
-        <a href='#' onClick={this.handleResetClick.bind(this)}>Reset Quiz</a>
+        <a href='' onClick={this.handleResetClick.bind(this)}>Reset Quiz</a>
       </div>
     )
   }
