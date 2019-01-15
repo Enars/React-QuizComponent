@@ -26,7 +26,6 @@ class Quiz extends Component {
     })
   }
   render() {
-    console.log(this.state.score)
     const isQuizEnd = ((this.state.quiz_position - 1) === quizData.quiz_questions.length)
     return (
       <div>

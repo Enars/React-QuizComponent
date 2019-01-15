@@ -1,24 +1,39 @@
 import React, { Component } from 'react'
 const star = require("./icons/star.png")
+const halfStar = require("./icons/halfStar.png")
 const emptyStar = require("./icons/emptyStar.png")
 
 class QuizScore extends Component {
   getScore() {
     return this.props.state.score.filter(val => val).length
   }
+  getScorePercentage() {
+    return Math.round(((this.getScore() * 100) / this.props.state.score.length))
+  }
+  getStarsArray() {
+    let scorePer = this.getScorePercentage()
+    let stars = []
+    for (let i = 0; i < 100; i += 20) {
+      switch (true) {
+        case (i + 5 < scorePer && i + 15 > scorePer):
+          stars.push(halfStar)
+          break        
+        case (i >= scorePer):
+          stars.push(emptyStar)
+          break
+        default:
+          stars.push(star)
+          break
+      }      
+    }
+    return stars
+  }
   render() {
     return(
-      <span>
-        {this.props.state.score.map((a, index) => (
-           (a) ?
-            <img style={resize} key={index}src={star} alt="star"/>
-           :
-            <img style={resize} key={index}src={emptyStar} alt="empty star"/>
-        ))
-        }
-        {console.log(this.props.state.score.length)}
-        {console.log(this.getScore())}
-      <p>You got {Math.round(((this.getScore() * 100) / this.props.state.score.length))}% right!</p>
+      <span className="score">
+        {this.getStarsArray().map((val, index) => (<img style={resize} key={index} src={val} alt="star"/>))}
+        <br/>
+        <p>You got {this.getScorePercentage()}% right!</p>
       </span>
     )
   }
