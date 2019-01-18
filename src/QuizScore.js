@@ -30,7 +30,7 @@ class QuizScore extends Component {
   }
   render() {
     return(
-      <span className="score">
+      <span>
         {this.getStarsArray().map((val, index) => (<img style={resize} key={index} src={val} alt="star"/>))}
         <br/>
         <p>You got {this.getScorePercentage()}% right!</p>

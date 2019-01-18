@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import QuizScore from './QuizScore.js'
+import QuizEndStats from './QuizEndStats.js';
 
 class QuizEnd extends Component {
   handleResetClick() {
@@ -12,6 +13,8 @@ class QuizEnd extends Component {
         <br />
         <p>Thanks for playing!</p>
         <a href='' onClick={this.handleResetClick.bind(this)}>Reset Quiz</a>
+        <br />
+        <QuizEndStats />
       </div>
     )
   }
