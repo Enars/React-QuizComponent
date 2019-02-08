@@ -1,6 +1,6 @@
 # Quiz Component in React
 
-A project based on a pluralsight course on which I added more functionality to upon completion.
+A project based on a pluralsight course where I added more functionality to upon completion.
 
 This repo contains the code for the Pluralsight Project "Build a Quiz Component with React," located here: https://app.pluralsight.com/projects/build-a-quiz-component-with-react/
 
